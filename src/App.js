@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { Stage, Layer, Rect, Text, Circle, Line } from "react-konva";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const draw = (len) => {
+  const res = [];
+  for (let i = 0; i < len; i++) {
+    res.push(
+      <p
+        style={{ position: "absolute", top: `${i}px` }}
+      >{`drawing element ${i}`}</p>
+    );
+  }
+  return res;
+};
+
+const App = () => {
+  return <div>{draw(100000)}</div>;
+};
 
 export default App;
